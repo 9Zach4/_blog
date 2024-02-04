@@ -1,11 +1,11 @@
+// PermissionModel.js
 import BaseModel from "@/db/models/BaseModel"
 import RoleModel from "@/db/models/RoleModel"
 
-
 class PermissionModel extends BaseModel {
-  static tableName = "permissions"
+  static tableName = "permissions";
 
-  static get relationMapping() {
+  static get relationMappings() {
     return {
       roles: {
         relation: BaseModel.ManyToManyRelation,
