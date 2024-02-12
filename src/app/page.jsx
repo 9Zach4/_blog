@@ -1,10 +1,6 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-
-
 
 export default function Home() {
   return (
-    <p>hello blog</p>
+    <p className="text-lg">hello blog</p>
   ) 
 }
