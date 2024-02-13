@@ -1,6 +1,6 @@
 
 export default function Home() {
   return (
-    <p className="text-lg">hello blog</p>
+    <p className="text-yellow-500">hello blog</p>
   ) 
 }
