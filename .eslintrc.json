@@ -47,11 +47,6 @@
         "ignoreGlobals": true
       }
     ],
-    "capitalized-comments": [
-      "error",
-      "always",
-      { "ignoreConsecutiveComments": true }
-    ],
     "class-methods-use-this": ["error", { "enforceForClassFields": true }],
     "complexity": ["warn", 40],
     "consistent-return": "error",

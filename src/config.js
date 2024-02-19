@@ -1,6 +1,5 @@
 import { boolean, number, object, string } from "yup"
 
-
 const validationSchema = object({
   db: object({
     client: string().oneOf(["pg"]).required(),
@@ -22,16 +21,21 @@ const validationSchema = object({
   }).noUnknown(),
 }).noUnknown()
 const data = {
-
   db: {
     client: "pg",
     connection: process.env.DB__CONNECTION,
   },
   security: {
+    jwt: {
+      cookieName: "sessionToken",
+      secret: process.env.SECURITY__JWT__SECRET,
+      expiresIn: "2 hours",
+      secure: process.env.NODE_ENV === "production",
+    },
     password: {
-      digest: "sha3-512",
       iterations: 100000,
       keylen: 256,
+      digest: "sha3-512",
       pepper: process.env.SECURITY__PASSWORD__PEPPER,
     },
   },
@@ -47,7 +51,7 @@ const config = (() => {
     console.error(err)
     process.exit(1)
   }
-  
+
   return null
 })()
 

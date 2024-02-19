@@ -13,6 +13,7 @@
     "@tanstack/react-form": "^0.13.5",
     "@tanstack/yup-form-adapter": "^0.13.5",
     "axios": "^1.6.7",
+    "clsx": "^2.1.0",
     "dotenv": "^16.4.4",
     "faker": "^5.5.3",
     "formik": "^2.4.5",
