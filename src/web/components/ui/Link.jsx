@@ -5,7 +5,6 @@ const Link = ({ styless = false, ...otherProps }) => (
   <NextLink
     className={clsx({
       underline: !styless,
-
     })}
     {...otherProps}
   />

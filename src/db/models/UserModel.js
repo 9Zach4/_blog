@@ -1,7 +1,7 @@
-import BaseModel from "@/db/models/BaseModels"
-import { pbkdf2, randomBytes } from "node:crypto"
-import { promisify } from "node:utils"
 import config from "@/config"
+import BaseModel from "@/db/models/BaseModel"
+import { pbkdf2, randomBytes } from "node:crypto"
+import { promisify } from "node:util"
 
 const pbkdf2Async = promisify(pbkdf2)
 
@@ -10,8 +10,7 @@ class UserModel extends BaseModel {
 
   static async hashPassword(
     password,
-    salt = randomBytes(config.security.password.keylen).toString("hex")
-      
+    salt = randomBytes(config.security.password.keylen).toString("hex"),
   ) {
     return [
       (
@@ -20,12 +19,12 @@ class UserModel extends BaseModel {
           salt + config.security.password.pepper,
           config.security.password.iterations,
           config.security.password.keylen,
-          config.security.password.digest
+          config.security.password.digest,
         )
       ).toString("hex"),
       salt,
     ]
-  } 
+  }
 }
 
 export default UserModel

@@ -1,15 +1,15 @@
 import clsx from "clsx"
 
 const variants = {
-  primary: " blg-blue-600 active:bg-blue-700 text-white",
+  primary: "bg-blue-600 active:bg-blue-700 text-white",
   transparent: "",
 }
 const sizes = {
- inherit: "",
+  inherit: "",
   md: "px-3 py-2 text-xl font-semibold",
 }
 const Button = ({
-   variant = "primary",
+  variant = "primary",
   size = "md",
   className,
   ...otherProps
@@ -24,6 +24,5 @@ const Button = ({
     {...otherProps}
   />
 )
-
 
 export default Button
