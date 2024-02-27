@@ -26,7 +26,7 @@ const Header = () => {
               <>
                 <MenuItem href="/">Post List</MenuItem>
                 <MenuItem href="/todos/create">New Post</MenuItem>
-                <MenuItem href="/categories">List categories</MenuItem>
+                <MenuItem href="/profile">Your Profile</MenuItem>
                 <li>
                   <Button
                     variant="transparent"
