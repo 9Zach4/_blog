@@ -56,7 +56,7 @@ const IndexPage = ({ initialData }) => {
         <thead>
           <tr>
             {[
-              "User Name",
+              "#",
               "Description",
               "Done",
               "Category",

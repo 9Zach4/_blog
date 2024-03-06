@@ -2,11 +2,11 @@ export const up = async (db) => {
   await db.schema.createTable("users", (table) => {
     table.increments("id")
     table.text("email").notNullable().unique()
-    table.text("username").notNullable().unique()
     table.text("passwordHash").notNullable()
+    table.string("username").notNullable()
+    table.string("role").notNullable().defaultTo("user")
     table.text("passwordSalt").notNullable()
-    table.text("role").notNullable().defaultTo("user")
-    table.text("status").notNullable().defaultTo("true")
+    table.boolean("status").notNullable().defaultTo(false)
     table.timestamps(true, true, true)
   })
 }

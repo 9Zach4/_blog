@@ -5,6 +5,8 @@ import methodNotAllowed from "@/api/middlewares/methodNotAllowed"
 import config from "@/config"
 import BaseModel from "@/db/models/BaseModel"
 import CategoryModel from "@/db/models/CategoryModel"
+import CommentModel from "@/db/models/CommentModel"
+import PostModel from "@/db/models/PostModel"
 import TodoModel from "@/db/models/TodoModel"
 import UserModel from "@/db/models/UserModel"
 import knex from "knex"
@@ -24,6 +26,8 @@ const mw = (handlers) => async (req, res) => {
       TodoModel,
       CategoryModel,
       UserModel,
+      PostModel,
+      CommentModel,
     },
     req,
     res,
