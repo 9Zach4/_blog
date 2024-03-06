@@ -21,7 +21,7 @@ class PostModel extends BaseModel {
     return {
       author: {
         relation: BaseModel.HasManyRelation,
-        modelClass: "UserModel",
+        modelClass:() => require("./UserModel").default,
         join: {
           from: "posts.authorId",
           to: "users.id",

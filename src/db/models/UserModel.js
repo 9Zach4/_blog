@@ -3,6 +3,7 @@ import BaseModel from "@/db/models/BaseModel"
 import { pbkdf2, randomBytes } from "node:crypto"
 import { promisify } from "node:util"
 
+
 const pbkdf2Async = promisify(pbkdf2)
 
 class UserModel extends BaseModel {

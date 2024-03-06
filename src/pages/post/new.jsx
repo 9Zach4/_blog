@@ -21,7 +21,9 @@ const PostPageInit = () => {
 
     resetForm()
   }
-  
+
+
+
   return (
     <Formik
       initialValues={initialValues}

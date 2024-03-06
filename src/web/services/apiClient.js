@@ -40,6 +40,7 @@ const createApiClient =
       })
   }
 const apiClient = createApiClient()
+apiClient.get = createApiClient("GET")
 apiClient.post = createApiClient("POST")
 apiClient.patch = createApiClient("PATCH")
 apiClient.delete = createApiClient("DELETE")

@@ -46,7 +46,7 @@ const handle = mw({
       const query = PostModel.query()
       const posts = await query
         .clone()
-        .orderBy("createdAt", "DESC")
+         .withGraphFetched("author")
         .limit(config.ui.itemsPerPage)
         .offset((page - 1) * config.ui.itemsPerPage)
       const [{ count }] = await query.clone().count()
