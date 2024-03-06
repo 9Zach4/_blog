@@ -1,6 +1,6 @@
 import { validate } from "@/api/middlewares/validate"
 import mw from "@/api/mw"
-import { emailValidator, passwordValidator } from "@/utils/validators"
+import { emailValidator, passwordValidator, userNameValidator } from "@/utils/validators"
 
 const handle = mw({
   POST: [
@@ -8,11 +8,12 @@ const handle = mw({
       body: {
         email: emailValidator,
         password: passwordValidator,
+        username: userNameValidator,
       },
     }),
     async ({
       input: {
-        body: { email, password },
+        body: { email, password, username },
       },
       models: { UserModel },
       res,
@@ -32,6 +33,7 @@ const handle = mw({
         email,
         passwordHash,
         passwordSalt,
+        username,
       })
 
       res.send({ result: true })

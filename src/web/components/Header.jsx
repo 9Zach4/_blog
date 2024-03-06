@@ -17,7 +17,7 @@ const Header = () => {
       <div className="flex md:max-w-3xl mx-auto p-4">
         <div className="text-2xl">
           <Link href="/" styless>
-            UGLY *** BLOG
+            UGLY BLOG
           </Link>
         </div>
         <nav className="ms-auto">
@@ -27,6 +27,8 @@ const Header = () => {
                 <MenuItem href="/">List todos</MenuItem>
                 <MenuItem href="/todos/create">Create todo</MenuItem>
                 <MenuItem href="/categories">List categories</MenuItem>
+                <MenuItem href="/post/list">post liste</MenuItem>
+                <MenuItem href="/post/new">new post+</MenuItem>
                 <li>
                   <Button
                     variant="transparent"

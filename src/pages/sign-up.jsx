@@ -12,7 +12,7 @@ import { object } from "yup"
 const initialValues = {
   email: "",
   password: "",
-  userName: "",
+  username: "",
 }
 const validationSchema = object({
   email: emailValidator.label("E-mail"),
@@ -50,7 +50,7 @@ const SignUpPage = () => {
       >
         <Form>
           <FormField
-            name="userName"
+            name="username"
             type="text"
             placeholder="Enter your username"
             label="Username"

@@ -3,6 +3,7 @@ import { faker } from "@faker-js/faker"
 export const seed = async (db) => {
   await db("todos").delete()
   await db("categories").delete()
+  await db("posts").delete()
   await db("users").delete()
   await db("users").insert(
     [...Array(5)].map(() => ({
@@ -24,6 +25,13 @@ export const seed = async (db) => {
       isDone: faker.number.int({ min: 1, max: 30 }) % 7 === 0,
       categoryId:
         categories[faker.number.int({ min: 0, max: categories.length - 1 })].id,
+    })),
+  )
+  await db("posts").insert(
+    [...new Array(100)].map(() => ({
+      title: faker.lorem.sentence(),
+      content: faker.lorem.paragraphs({ count: 5 }),
+      authorId: faker.number.int({ min: 1, max: 5 }),
     })),
   )
 }
