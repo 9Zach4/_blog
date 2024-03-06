@@ -1,4 +1,4 @@
-import { emailValidator, passwordValidator } from "@/utils/validators"
+import { emailValidator, passwordValidator, userNameValidator } from "@/utils/validators"
 import Alert from "@/web/components/ui/Alert"
 import Form from "@/web/components/ui/Form"
 import FormField from "@/web/components/ui/FormField"
@@ -12,10 +12,13 @@ import { object } from "yup"
 const initialValues = {
   email: "",
   password: "",
+  userName: "",
 }
 const validationSchema = object({
   email: emailValidator.label("E-mail"),
   password: passwordValidator.label("Password"),
+  username: userNameValidator.label("Username"),
+
 })
 const SignUpPage = () => {
   const { isSuccess, mutateAsync } = useMutation({
@@ -30,10 +33,7 @@ const SignUpPage = () => {
   if (isSuccess) {
     return (
       <div className="flex flex-col gap-4">
-        <Alert>
-          We just sent you an e-mail. Please use the provided link to validate
-          your account ❤️
-        </Alert>
+        <Alert variant="success"> You have successfully signed up. Please sign in to continue. </Alert>
         <p>
           <Link href="/sign-in">Go to sign-in page.</Link>
         </p>
@@ -49,6 +49,12 @@ const SignUpPage = () => {
         onSubmit={handleSubmit}
       >
         <Form>
+          <FormField
+            name="userName"
+            type="text"
+            placeholder="Enter your username"
+            label="Username"
+          />
           <FormField
             name="email"
             type="email"
