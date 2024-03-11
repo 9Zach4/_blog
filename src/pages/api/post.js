@@ -15,6 +15,7 @@ const handle = mw({
       },
     }),
     async ({
+      session,
       models: { PostModel },
       input: {
         body: { content, title },
@@ -25,6 +26,7 @@ const handle = mw({
         .insertAndFetch({
           content,
           title,
+          userId: session.userId,
         })
 
       res.send(post)
@@ -46,7 +48,6 @@ const handle = mw({
       const query = PostModel.query()
       const posts = await query
         .clone()
-         .withGraphFetched("author")
         .limit(config.ui.itemsPerPage)
         .offset((page - 1) * config.ui.itemsPerPage)
       const [{ count }] = await query.clone().count()

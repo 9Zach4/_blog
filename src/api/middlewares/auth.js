@@ -17,9 +17,10 @@ const auth = async (ctx) => {
     )
 
     ctx.session = {
-      authorId: payload.id,
+      id: payload.id,
       role: payload.role,
-
+      username: payload.username,
+      email: payload.email,
     }
 
     await next()

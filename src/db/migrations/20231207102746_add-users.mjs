@@ -6,7 +6,6 @@ export const up = async (db) => {
     table.string("username").notNullable()
     table.string("role").notNullable().defaultTo("user")
     table.text("passwordSalt").notNullable()
-    table.boolean("status").notNullable().defaultTo(false)
     table.timestamps(true, true, true)
   })
 }

@@ -1,9 +1,10 @@
 import { todoDescriptionValidator } from "@/utils/validators"
 import Form from "@/web/components/ui/Form"
 import FormField from "@/web/components/ui/FormField"
-import axios from "axios"
 import { Formik } from "formik"
+import apiClient from "@/web/services/apiClient"
 import { object } from "yup"
+
 
 const initialValues = {
   description: "",
@@ -15,10 +16,11 @@ const validationSchema = object({
 // eslint-disable-next-line max-lines-per-function
 const CreateTodoPage = () => {
   const handleSubmit = async (values, { resetForm }) => {
-    await axios.post("http://localhost:3000/api/todos", values)
+    await apiClient.post("http://localhost:3000/api/todos", values)
 
     resetForm()
   }
+  
 
   return (
     <Formik
@@ -40,3 +42,6 @@ const CreateTodoPage = () => {
 }
 
 export default CreateTodoPage
+
+
+

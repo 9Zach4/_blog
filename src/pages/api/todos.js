@@ -16,7 +16,7 @@ const handle = mw({
       body: {
         description: todoDescriptionValidator,
         categoryId: idValidator,
-        isDone: statusValidator.optional(),
+        isDone: statusValidator,
       },
     }),
     async ({
@@ -68,5 +68,6 @@ const handle = mw({
     },
   ],
 })
+
 
 export default handle

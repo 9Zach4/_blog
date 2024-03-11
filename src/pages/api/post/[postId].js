@@ -4,10 +4,36 @@ import mw from "@/api/mw"
 import { postIdValidator, contentValidator, titleValidator } from "@/utils/validators"
 
 const handle = mw({
+  POST: [
+    auth, 
+    validate({
+      body: {
+        content: contentValidator,
+        title: titleValidator,
+      },
+    }),
+    async ({
+      session,
+      models: { PostModel },
+      input: {
+        body: { content, title },
+      },
+      res,
+    }) => {
+      const post = await PostModel.query().insertAndFetch({
+        authorId: session.userId,
+        content,
+        title,
+      })
+
+      res.send(post)
+    },
+  ],
   GET: [
     validate({
       query: {
         postId: postIdValidator,
+        authorId: postIdValidator.optional(),
       },
     }),
     async ({
@@ -73,4 +99,3 @@ const handle = mw({
 })
 
 export default handle
-

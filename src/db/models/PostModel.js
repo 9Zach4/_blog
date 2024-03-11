@@ -1,5 +1,5 @@
 import BaseModel from "@/db/models/BaseModel"
-
+import UserModel from "@/db/models/UserModel"
 
 class PostModel extends BaseModel {
   static tableName = "posts"
@@ -20,8 +20,8 @@ class PostModel extends BaseModel {
   static get relationMappings() {
     return {
       author: {
-        relation: BaseModel.HasManyRelation,
-        modelClass:() => require("./UserModel").default,
+        relation: BaseModel.BelongsToOneRelation,
+        modelClass: UserModel,
         join: {
           from: "posts.authorId",
           to: "users.id",

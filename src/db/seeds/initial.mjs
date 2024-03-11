@@ -6,7 +6,7 @@ export const seed = async (db) => {
     await db("posts").delete()
   await db("users").delete()
   await db("users").insert(
-    [...Array(5)].map(() => ({
+    [...Array(1000)].map(() => ({
       email: faker.internet.email(),
       passwordHash: "alskdjalsdkjasdlkj",
       username: faker.internet.userName(),
@@ -29,11 +29,9 @@ export const seed = async (db) => {
     })),
   )
   await db("posts").insert(
-    [...new Array(1)].map(() => ({
-     title: faker.lorem.sentence(),
+    [...new Array(10)].map(() => ({
+     title: faker.word.words({ count: { min: 2, max: 10 } }),
       content: faker.lorem.paragraph(),
-      authorId: faker.datatype.int({ min: 1, max: 4}),
-      
     })),
   )
 }

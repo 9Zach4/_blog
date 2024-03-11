@@ -39,6 +39,13 @@ const handle = mw({
       res.send({ result: true })
     },
   ],
+  GET: [
+    async ({ models: { UserModel }, res }) => {
+      const users = await UserModel.query()
+
+      res.send(users)
+    },
+  ],
 })
 
 export default handle

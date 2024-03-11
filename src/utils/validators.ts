@@ -1,4 +1,4 @@
-import { boolean, number, string } from "yup"
+import { number, string } from "yup"
 
 export const emailValidator = string().email().required()
 export const passwordValidator = string()
@@ -10,10 +10,8 @@ export const passwordValidator = string()
   )
   .required()
 export const userNameValidator = string().min(3, "Username too short").required("Username is required")
-
 export const todoDescriptionValidator = string().min(8).required()
 export const categoryNameValidator = string().min(8).required()
-export const statusValidator = boolean().required()
 export const idValidator = number().integer().min(1).required()
 export const pageValidator = number().integer().min(1).default(1).required()
 export const contentValidator = string().min(1).required("You gotta write something here !")
