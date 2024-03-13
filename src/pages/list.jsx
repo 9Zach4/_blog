@@ -57,6 +57,7 @@ const ListPage = ({ initialData }) => {
               <td>{title}</td>
               <td>{content}</td>
               <td>{authorId}</td>
+
             </tr>
           ))}
         </tbody>

@@ -8,7 +8,7 @@ import apiClient from "@/web/services/apiClient"
 
 const initialValues = {
   title: "",
-  content: "",
+  content: ""
 }
 const validationSchema = object({
   title: titleValidator.label("Title"),
@@ -19,6 +19,7 @@ const PostPageInit = () => {
     await apiClient("/post", { method: "POST", data: values })
 
     resetForm()
+    console.log(values)
   }
 
 

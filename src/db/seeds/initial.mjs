@@ -11,8 +11,10 @@ export const seed = async (db) => {
       passwordHash: "alskdjalsdkjasdlkj",
       username: faker.internet.userName(),
       passwordSalt: "alskdjalsdkjasdlkj",
+
     })),
   )
+   const existingUserIds = await db("users").pluck("id")
   const categories = await db("categories")
     .insert(
       [...new Array(30)].map(() => ({
@@ -28,10 +30,13 @@ export const seed = async (db) => {
         categories[faker.number.int({ min: 0, max: categories.length - 1 })].id,
     })),
   )
+
+
   await db("posts").insert(
-    [...new Array(1000)].map(() => ({
+    [...new Array(30)].map(() => ({
      title: faker.word.words({ count: { min: 2, max: 10 } }),
       content: faker.lorem.paragraph(),
+      authorId: existingUserIds[faker.number.int({ min: 0, max: existingUserIds.length - 1 })],
     })),
   )
 }
