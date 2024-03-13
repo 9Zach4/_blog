@@ -22,15 +22,20 @@ const handle = mw({
       },
       res,
     }) => {
-      const post = await PostModel.query()
-        .insertAndFetch({
-          content,
-          title,
-          userId: session.userId,
-        })
+      try {
+        const post = await PostModel.query()
+          .insertAndFetch({
+            authorId: session.id,
+            content,
+            title,
+          })
 
-      res.send(post)
-    },
+        res.send(post)
+      } 
+      catch (error) {
+        res.status(500).send("Error creating post")
+      }
+    }
   ],
   GET: [
     validate({
@@ -38,22 +43,25 @@ const handle = mw({
         page: pageValidator.optional(),
       },
     }),
-    async ({
-      res,
-      models: { PostModel },
-      input: {
-        query: { page },
-      },
+     async ({
+        res,
+        models: { PostModel },
+        input: {
+            query: { page },
+        },
     }) => {
-      const query = PostModel.query()
-      const posts = await query
-        .clone()
-        .limit(config.ui.itemsPerPage)
-        .offset((page - 1) * config.ui.itemsPerPage)
-      const [{ count }] = await query.clone().count()
-      res.send({ posts, count })
+        try {
+            const posts = await PostModel.query()
+            
+              .offset((page - 1) * config.ui.itemsPerPage)
+              .limit(config.ui.itemsPerPage)
+             const [{ count }] = await PostModel.query().count()
+            res.send({ posts, count })
+        } catch (error) {
+            res.status(500).send("Error fetching posts")
+        }
     },
-  ],
+],
 })
 
 export default handle

@@ -1,6 +1,6 @@
 export const up = async (db) => {
   await db.schema.createTable("users", (table) => {
-    table.increments("id")
+    table.increments("id").primary()
     table.text("email").notNullable().unique()
     table.text("passwordHash").notNullable()
     table.string("username").notNullable()

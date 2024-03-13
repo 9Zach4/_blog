@@ -29,7 +29,7 @@ export const seed = async (db) => {
     })),
   )
   await db("posts").insert(
-    [...new Array(10)].map(() => ({
+    [...new Array(1000)].map(() => ({
      title: faker.word.words({ count: { min: 2, max: 10 } }),
       content: faker.lorem.paragraph(),
     })),

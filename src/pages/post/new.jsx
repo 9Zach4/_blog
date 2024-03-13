@@ -1,10 +1,9 @@
-import { todoDescriptionValidator } from "@/utils/validators"
+import { contentValidator, titleValidator } from "@/utils/validators"
 import Form from "@/web/components/ui/Form"
 import FormField from "@/web/components/ui/FormField"
-import axios from "axios"
 import { Formik } from "formik"
 import { object } from "yup"
-
+import apiClient from "@/web/services/apiClient"
 
 
 const initialValues = {
@@ -12,12 +11,12 @@ const initialValues = {
   content: "",
 }
 const validationSchema = object({
-  title: todoDescriptionValidator.label("Title"),
-  content: todoDescriptionValidator.label("Content"),
+  title: titleValidator.label("Title"),
+  content: contentValidator.label("Content"),
 })
 const PostPageInit = () => { 
   const handleSubmit = async (values, { resetForm }) => {
-    await axios.post("http://localhost:3000/api/post", values)
+    await apiClient("/post", { method: "POST", data: values })
 
     resetForm()
   }
