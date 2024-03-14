@@ -55,7 +55,7 @@ const handle = mw({
             
               .offset((page - 1) * config.ui.itemsPerPage)
               .limit(config.ui.itemsPerPage)
-             const [{ count }] = await PostModel.query().count()
+          const [{ count }] = await PostModel.query().count()
             res.send({ posts, count })
         } catch (error) {
             res.status(500).send("Error fetching posts")

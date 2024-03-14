@@ -15,12 +15,14 @@ const validationSchema = object({
   content: contentValidator.label("Content"),
 })
 const PostPageInit = () => { 
-  const handleSubmit = async (values, { resetForm }) => {
-    await apiClient("/post", { method: "POST", data: values })
+  const handleSubmit = async (values) => {
+    const post = await apiClient.post("/post", values)
 
-    resetForm()
-    console.log(values)
+    if (post) {
+    location.reload()
+    }
   }
+
 
 
 

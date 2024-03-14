@@ -14,7 +14,7 @@ export const seed = async (db) => {
 
     })),
   )
-   const existingUserIds = await db("users").pluck("id")
+   const userIds = await db("users").pluck("id")
   const categories = await db("categories")
     .insert(
       [...new Array(30)].map(() => ({
@@ -33,10 +33,10 @@ export const seed = async (db) => {
 
 
   await db("posts").insert(
-    [...new Array(30)].map(() => ({
+    [...new Array(15)].map(() => ({
      title: faker.word.words({ count: { min: 2, max: 10 } }),
       content: faker.lorem.paragraph(),
-      authorId: existingUserIds[faker.number.int({ min: 0, max: existingUserIds.length - 1 })],
+      authorId: userIds[faker.number.int({ min: 0, max: userIds.length - 1 })],
     })),
   )
 }
