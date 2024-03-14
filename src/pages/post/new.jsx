@@ -22,10 +22,7 @@ const PostPageInit = () => {
     location.reload()
     }
   }
-
-
-
-
+  
   return (
     <Formik
       initialValues={initialValues}

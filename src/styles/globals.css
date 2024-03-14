@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.bg-yellow-400 {
+  background-color: #f2e900;
+}

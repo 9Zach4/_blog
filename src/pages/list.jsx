@@ -36,7 +36,7 @@ const ListPage = ({ initialData }) => {
   
   return (
     <div className="relative">
-      <table className="w-full">
+      <table className="w-full text-white">
         <thead>
           <tr>
             {[
