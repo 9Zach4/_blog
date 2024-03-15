@@ -36,16 +36,17 @@ const ListPage = ({ initialData }) => {
   
   return (
     <div className="relative">
-      <table className="w-full text-white">
+      <table className="w-full">
         <thead>
-          <tr>
+          <tr className="bg-gray-400">
             {[
               "Title",
               "Content",
               "Author",
+              "Actions"
             
             ].map((header) => (
-              <th key={header} className="text-left">
+              <th key={header} className="border border-b border-black p-5">
                 {header}
               </th>
             ))}
@@ -53,11 +54,16 @@ const ListPage = ({ initialData }) => {
         </thead>
         <tbody>
           {posts.map(({ id, title, authorId, content }) => (
-            <tr key={id}>
-              <td>{title}</td>
-              <td>{content}</td>
-              <td>{authorId}</td>
+            <tr key={id} className="border border-black">
+              <td className="border border-b border-black p-2">{title}</td>
+              <td className="p-2">{content}</td>
+              <td className="border border-b border-black text-center">{authorId}</td>
+              <td className="text-center">
+                <a href="/post/comments">reply
 
+              </a>
+              
+              </td>
             </tr>
           ))}
         </tbody>

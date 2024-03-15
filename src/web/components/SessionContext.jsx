@@ -7,6 +7,7 @@ const SessionContext = createContext()
 
 export const useSession = () => useContext(SessionContext)
 
+
 export const SessionProvider = (props) => {
   const [session, setSession] = useState(null)
   const saveSessionToken = (jwt) => {
@@ -18,10 +19,9 @@ export const SessionProvider = (props) => {
   }
   const signOut = () => {
     localStorage.removeItem(config.security.session.storageKey)
-
     apiClient.delete("/sessions")
-
     setSession(null)
+    location.reload()
   }
 
   useEffect(() => {
