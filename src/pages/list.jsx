@@ -2,6 +2,7 @@ import { useRouter } from "next/router"
 import { useQuery } from "@tanstack/react-query"
 import Pagination from "@/web/components/ui/Pagination"
 import apiClient from "@/web/services/apiClient"
+import Link from "next/link"
 import Loader from "@/web/components/ui/Loader"
 
 export const getServerSideProps = async ({ query: { page } }) => {
@@ -59,9 +60,9 @@ const ListPage = ({ initialData }) => {
               <td className="p-2">{content}</td>
               <td className="border border-b border-black text-center">{authorId}</td>
               <td className="text-center">
-                <a href="/post/comments">reply
+                <Link href="/post/comments">reply
 
-              </a>
+              </Link>
               
               </td>
             </tr>

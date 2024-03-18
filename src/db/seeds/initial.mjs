@@ -1,8 +1,6 @@
 import { faker } from "@faker-js/faker"
 
 export const seed = async (db) => {
-  await db("todos").delete()
-  await db("categories").delete()
   await db("posts").delete()
   await db("comments").delete()
   await db("users").delete()
@@ -17,21 +15,9 @@ export const seed = async (db) => {
   )
   const userIds = await db("users").pluck("id")
   const postIds = await db("posts").pluck("id")
-  const categories = await db("categories")
-    .insert(
-      [...new Array(30)].map(() => ({
-        name: faker.word.noun(),
-      })),
-    )
-    .returning("*")
-  await db("todos").insert(
-    [...new Array(1000)].map(() => ({
-      description: faker.word.words({ count: { min: 2, max: 10 } }),
-      isDone: faker.number.int({ min: 1, max: 30 }) % 7 === 0,
-      categoryId:
-        categories[faker.number.int({ min: 0, max: categories.length - 1 })].id,
-    })),
-  )
+
+
+
   await db("posts").insert(
     [...new Array(15)].map(() => ({
      title: faker.word.words({ count: { min: 2, max: 10 } }),
@@ -41,9 +27,9 @@ export const seed = async (db) => {
   )
   await db("comments").insert(
     [...new Array(100)].map(() => ({
-      content: faker.lorem.paragraph(),
+    content: faker.lorem.paragraph(),
     postId: postIds[faker.number.int({ min: 0, max: postIds.length + 1 })],
-    userId: userIds[faker.number.int({ min: 0, max: userIds.length + 1 })],
+    userId: userIds[faker.number.int({ min: 0, max: userIds.length - 1 })],
     })),
   )
 }
