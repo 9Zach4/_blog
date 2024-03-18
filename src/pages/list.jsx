@@ -39,7 +39,7 @@ const ListPage = ({ initialData }) => {
     <div className="relative">
       <table className="w-full">
         <thead>
-          <tr className="bg-gray-400">
+          <tr className="bg-white">
             {[
               "Title",
               "Content",
@@ -55,7 +55,7 @@ const ListPage = ({ initialData }) => {
         </thead>
         <tbody>
           {posts.map(({ id, title, authorId, content }) => (
-            <tr key={id} className="border border-black">
+            <tr key={id} className="border border-black bg-white">
               <td className="border border-b border-black p-2">{title}</td>
               <td className="p-2">{content}</td>
               <td className="border border-b border-black text-center">{authorId}</td>

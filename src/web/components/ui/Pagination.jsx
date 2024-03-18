@@ -25,7 +25,7 @@ const Pagination = (props) => {
 
   return (
     <div
-      className={clsx("flex gap-2 justify-center", className)}
+      className={clsx("flex gap-2 justify-center bg-white", className)}
       {...otherProps}
     >
       {page > 1 && (

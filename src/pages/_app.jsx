@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 
 const client = new QueryClient()
 const App = ({ Component, pageProps }) => (
+  <div className="bg-gradient-to-r from-fuchsia-600 to-pink-600 h-screen">
   <QueryClientProvider client={client}>
     <SessionProvider>
       <div className="flex flex-col">
@@ -16,7 +17,8 @@ const App = ({ Component, pageProps }) => (
         </section>
       </div>
     </SessionProvider>
-  </QueryClientProvider>
+    </QueryClientProvider>
+  </div>
 )
 
 export default App
