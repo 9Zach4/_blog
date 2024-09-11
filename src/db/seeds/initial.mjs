@@ -15,6 +15,7 @@ export const seed = async (db) => {
   )
   const userIds = await db("users").pluck("id")
   const postIds = await db("posts").pluck("id")
+ 
 
 
 
@@ -23,6 +24,7 @@ export const seed = async (db) => {
      title: faker.word.words({ count: { min: 2, max: 10 } }),
       content: faker.lorem.paragraph(),
       authorId: userIds[faker.number.int({ min: 0, max: userIds.length - 1 })],
+      username: faker.internet.userName(),
     })),
   )
   await db("comments").insert(

@@ -62,7 +62,6 @@ const handle = mw({
       res.setHeader("set-cookie", cookie.toString()).send({ result: jwt })
     },
   ],
-
   DELETE: [
     auth,
     ({ res }) => {
