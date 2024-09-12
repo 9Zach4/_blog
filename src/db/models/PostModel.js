@@ -6,14 +6,13 @@ class PostModel extends BaseModel {
 
   static jsonSchema = {
     type: "object",
-    required: ["title", "content", "authorId", "username"],
+    required: ["title", "content", "authorId"],
 
     properties: {
       id: { type: "integer" },
       title: { type: "string", minLength: 1 },
       content: { type: "string", minLength: 1 },
       authorId: { type: "integer" },
-      username: { type: "string", minLength: 1,  maxLength: 255 },
     },
   }
 
@@ -21,7 +20,7 @@ class PostModel extends BaseModel {
   static get relationMappings() {
     return {
       author: {
-        relation: BaseModel.BelongsToOneRelation,
+        relation: BaseModel.HasManyRelation,
         modelClass: UserModel,
         join: {
           from: "posts.authorId",
