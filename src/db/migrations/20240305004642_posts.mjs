@@ -4,6 +4,7 @@ export const up = async (db) => {
     table.string("title").notNullable()
     table.text("content").notNullable()
     table.integer("authorId").unsigned().references("id").inTable("users").onDelete("CASCADE")
+    table.string("username").unsigned()
   })
 }
 

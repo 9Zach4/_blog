@@ -14,14 +14,17 @@ export const seed = async (db) => {
 
     })),
   )
-    const userIds = await db("users").pluck("id")
+  
+  const userIds = await db("users").pluck("id")
+  const userName = await db("users").pluck("username")
   //   const postIds = await db("posts").pluck("id")
   
   await db("posts").insert(
     [new Array(1)].map(() => ({
       title: "Hello World",
-      content:  "This is a test post",
+      content: "This is a test post",
       authorId: userIds[faker.number.int({ min: 0, max: userIds.length - 1 })],
+      username: userName.toString("zach")
     })),
   )
 
