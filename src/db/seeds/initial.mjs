@@ -27,7 +27,7 @@ export const seed = async (db) => {
       username: userName.toString("zach")
     })),
   )
-
+}
 
 
   // await db("posts").insert(
@@ -37,7 +37,6 @@ export const seed = async (db) => {
   //     authorId: userIds[faker.number.int({ min: 0, max: userIds.length - 1 })],
   //   })),
   // )
-}
 //   await db("comments").insert(
 //     [...new Array(100)].map(() => ({
 //     content: faker.lorem.paragraph(),
