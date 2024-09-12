@@ -54,11 +54,11 @@ const ListPage = ({ initialData }) => {
           </tr>
         </thead>
         <tbody>
-          {posts.map(({ id, title, authorId, content }) => (
+          {posts.map(({ id, title, username, content }) => (
             <tr key={id} className="border border-black bg-white">
               <td className="border border-b border-black p-2">{title}</td>
               <td className="p-2">{content}</td>
-              <td className="border border-b border-black text-center">{authorId}</td>
+              <td className="border border-b border-black text-center">{username}</td>
               <td className="text-center">
                 <Link href="/post/comments">reply
 
