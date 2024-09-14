@@ -27,7 +27,7 @@ export const seed = async (db) => {
       username: userName.toString("zach")
     })),
   )
-}
+}  
 
 
   // await db("posts").insert(
