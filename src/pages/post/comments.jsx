@@ -12,7 +12,6 @@ const PostComments = () => {
       <h1>Comments for Post {postId}</h1>
     </div>
   )
-
 }
 
 export default PostComments

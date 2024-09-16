@@ -1,5 +1,8 @@
 import { faker } from "@faker-js/faker"
+import UserModel from "../models/UserModel.js"
 
+const password = process.env.PASSWORD
+const [passwordHash, passwordSalt] = await UserModel.hashPassword(password)
 export const seed = async (db) => {
   await db("posts").delete()
   await db("comments").delete()
@@ -7,16 +10,15 @@ export const seed = async (db) => {
 
   await db("users").insert(
     [...Array(1)].map(() => ({
-      email: "zacharie@gmail.com",
-      passwordHash: "alskdjalsdkjasdlkj",
-      username: "zach",
-      passwordSalt: "alskdjalsdkjasdlkj",
-
+      email: process.env.EMAIL,
+      passwordHash,
+      username: process.env.USERNAME,
+      passwordSalt,
     })),
   )
-  
+
   const userIds = await db("users").pluck("id")
-  const userName = await db("users").pluck("username")
+
   //   const postIds = await db("posts").pluck("id")
   
   await db("posts").insert(
@@ -24,7 +26,7 @@ export const seed = async (db) => {
       title: "Hello World",
       content: "This is a test post",
       authorId: userIds[faker.number.int({ min: 0, max: userIds.length - 1 })],
-      username: userName.toString("zach")
+      username: process.env.USERNAME,
     })),
   )
 }  
