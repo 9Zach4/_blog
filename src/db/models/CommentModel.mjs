@@ -1,4 +1,4 @@
-import BaseModel from "./BaseModel"
+import BaseModel from "./BaseModel.mjs"
 
 class CommentModel extends BaseModel {
   static tableName = "comments"

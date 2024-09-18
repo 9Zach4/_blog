@@ -1,5 +1,5 @@
 import { faker } from "@faker-js/faker"
-import UserModel from "../models/UserModel.js"
+import UserModel from "../models/UserModel.mjs"
 
 const password = process.env.PASSWORD
 const [passwordHash, passwordSalt] = await UserModel.hashPassword(password)

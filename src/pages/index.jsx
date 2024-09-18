@@ -13,7 +13,7 @@ const IndexPage = () => (
       you can sign-in, post, comments,  and see the list of posts and even delete you're own post. 💻
     </p>
     <p>
-      That's all. Simple. 🤷‍♂️
+     will be upgraded soon ☝🏿
     </p>
     <p> I know the blog looks 💩 right now but it will be upgraded in the futur, trust me 🙏🏿</p>
     <p>

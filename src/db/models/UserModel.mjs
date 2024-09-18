@@ -1,5 +1,5 @@
-import config from "../../config.js"
-import BaseModel from "../models/BaseModel.js"
+import config from "../../config.mjs"
+import BaseModel from "./BaseModel.mjs"
 import { pbkdf2, randomBytes } from "node:crypto"
 import { promisify } from "node:util"
 const pbkdf2Async = promisify(pbkdf2)
