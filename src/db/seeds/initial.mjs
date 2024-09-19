@@ -31,9 +31,6 @@ export const seed = async (db) => {
       
     })),
   )
-
-
-
   // await db("posts").insert(
   //   [...new Array(15)].map(() => ({
   //    title: faker.word.words({ count: { min: 2, max: 10 } }),
@@ -44,7 +41,7 @@ export const seed = async (db) => {
   await db("comments").insert(
     [new Array(10)].map(() => ({
     content: faker.lorem.paragraph(),
-    postId: 42,
+    postId: postIds[faker.number.int({ min: 0, max: postIds.length + 1 })],
       userId: userIds[faker.number.int({ min: 0, max: userIds.length - 1 })],
     })),
   )

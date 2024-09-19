@@ -8,7 +8,8 @@ const handle = mw({
   GET: [
    validate ({
       query: {
-         page: pageValidator.optional(),
+       page: pageValidator.optional(),
+        
       }
     }),
 
@@ -23,14 +24,12 @@ const handle = mw({
         const comments = await CommentModel.query()
           .offset((page - 1) * config.ui.itemsPerPage)
           .limit(config.ui.itemsPerPage)
-
         res.send({
           comments: comments.map(comment => ({
             id: comment.id,
             content: comment.content,
             userId: comment.userId,
             postId: comment.postId,
-           
           }))
         })
       } catch (error) {

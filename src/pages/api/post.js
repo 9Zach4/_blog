@@ -12,6 +12,7 @@ const handle = mw({
       body: {
         content: contentValidator,
         title: titleValidator,
+   
       },
     }),
     async ({
@@ -28,11 +29,9 @@ const handle = mw({
             authorId: session.id,
             content,
             title,
-            username: session.username
+            username: session.username,
+        
           })
-        
-        
-        
         res.send(post)
       } 
       catch (error) {
