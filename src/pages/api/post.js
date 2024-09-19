@@ -33,7 +33,6 @@ const handle = mw({
         
         
         
-        // console.log(session.username) 
         res.send(post)
       } 
       catch (error) {

@@ -1,17 +1,15 @@
 
-import { useRouter } from "next/router"
-const PostComments = () => {
-  const router = useRouter()
-  const { postId } = router.query
+// import { useRouter } from "next/router"
+
+const PostComments = () =>
 
 
-  console.log(postId)
-
-  return (
+(
     <div>
-      <h1>Comments for Post {postId}</h1>
+      <h1>Comments for Post</h1>
     </div>
   )
-}
+
+
 
 export default PostComments

@@ -18,6 +18,7 @@ export const seed = async (db) => {
   )
 
   const userIds = await db("users").pluck("id")
+  const postIds = await db("posts").pluck("id")
 
   //   const postIds = await db("posts").pluck("id")
   
@@ -27,9 +28,10 @@ export const seed = async (db) => {
       content: "This is a test post",
       authorId: userIds[faker.number.int({ min: 0, max: userIds.length - 1 })],
       username: process.env.USERNAME,
+      
     })),
   )
-}  
+
 
 
   // await db("posts").insert(
@@ -39,11 +41,11 @@ export const seed = async (db) => {
   //     authorId: userIds[faker.number.int({ min: 0, max: userIds.length - 1 })],
   //   })),
   // )
-//   await db("comments").insert(
-//     [...new Array(100)].map(() => ({
-//     content: faker.lorem.paragraph(),
-//     postId: postIds[faker.number.int({ min: 0, max: postIds.length + 1 })],
-//     userId: userIds[faker.number.int({ min: 0, max: userIds.length - 1 })],
-//     })),
-//   )
-// }
+  await db("comments").insert(
+    [new Array(10)].map(() => ({
+    content: faker.lorem.paragraph(),
+    postId: 42,
+      userId: userIds[faker.number.int({ min: 0, max: userIds.length - 1 })],
+    })),
+  )
+}
