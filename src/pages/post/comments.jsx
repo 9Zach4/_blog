@@ -1,15 +1,16 @@
 
-// import { useRouter } from "next/router"
-
-const PostComments = () =>
 
 
-(
+
+ const SinglePost = () => (
     <div>
-      <h1>Comments for Post</h1>
+      <h1>Comments</h1>
     </div>
-  )
+)
+
+
+export default SinglePost
 
 
 
-export default PostComments
+

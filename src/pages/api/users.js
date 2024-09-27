@@ -35,6 +35,7 @@ const handle = mw({
         passwordSalt,
         username,
       })
+  
 
       res.send({ result: true })
     },

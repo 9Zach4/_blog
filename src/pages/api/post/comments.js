@@ -9,10 +9,9 @@ const handle = mw({
    validate ({
       query: {
        page: pageValidator.optional(),
-        
       }
     }),
-
+  
     async ({
       res,
       models: { CommentModel },
