@@ -8,7 +8,6 @@ const handle = mw({
     validate({
       query: {
         postId: postIdValidator,
-      
       },
     }),
     async ({
