@@ -60,7 +60,7 @@ const ListPage = ({ initialData }) => {
               <td className="p-2">{content}</td>
               <td className="border border-b border-black text-center">{username}</td>
               <td className="text-center">
-                <Link href="/post/comments">reply
+                <Link href={`/post/comments/${id}`}>reply
 
               </Link>
               
